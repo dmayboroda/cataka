@@ -11,7 +11,7 @@
 bool init_ui(Entity *entity) {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(0, 0);
-    SDL_WM_SetCaption("Catake", NULL);
+    SDL_WM_SetCaption("Cataka", NULL);
     Mix_Init(0);
     TTF_Init();
     
