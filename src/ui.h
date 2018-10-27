@@ -17,8 +17,8 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 768
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
 #define BIT_PER_PIXEL 32
 
 typedef struct {
@@ -27,11 +27,11 @@ typedef struct {
     SDL_Surface *item;
     SDL_Surface *enemy;
     SDL_Surface *player;
-} Entity;
+} UI_obj;
 
-bool init_ui(Entity *entity);
+bool init_ui(UI_obj *ui_obj);
 SDL_Surface* load_image(const char *filename);
-void dest_ui(Entity *entity);
+void dest_ui(UI_obj *ui_obj);
 
-#define check_surface(entity)((entity) == NULL ? false : true)
+#define check_surface(ui_obj)((ui_obj) == NULL ? false : true)
 #endif /* ui_h */

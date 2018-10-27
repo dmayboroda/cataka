@@ -8,19 +8,19 @@
 
 #include "ui.h"
 
-bool init_ui(Entity *entity) {
+bool init_ui(UI_obj *ui_obj) {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(0, 0);
     SDL_WM_SetCaption("Cataka", NULL);
     Mix_Init(0);
     TTF_Init();
     
-    entity->buffer = SDL_SetVideoMode(SCREEN_WIDTH, 
+    ui_obj->buffer = SDL_SetVideoMode(SCREEN_WIDTH, 
                                     SCREEN_HEIGHT, 
                                     BIT_PER_PIXEL, 
                                     SDL_HWSURFACE);
-    entity->player = load_image("res/cat_fighter_sprite1.png");
-    entity->enemy = load_image("res/cat_fighter_sprite2.png");
+    ui_obj->player = load_image("res/sprite_player.png");
+    ui_obj->enemy = load_image("res/cat_fighter_sprite2.png");
     return true;
 }
 
@@ -32,8 +32,13 @@ SDL_Surface* load_image(const char *filename) {
     return image;
 }
 
-void dest_ui(Entity* entity) {
-    Mix_Quit();
-    TTF_Quit();
+void dest_surface(SDL_Surface* surface) {
+    if (surface) { SDL_FreeSurface(surface); }
+}
+
+void dest_ui(UI_obj* ui_obj) {
+    dest_surface(ui_obj->buffer);
+    dest_surface(ui_obj->player);
+    dest_surface(ui_obj->enemy);
     SDL_Quit();
 }
