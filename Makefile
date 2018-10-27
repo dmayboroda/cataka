@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall `sdl-config --cflags` $(DEBUG)
 LIBS = `sdl-config --libs` -lSDL_image -lSDL_ttf -lSDL_mixer
-NAME = 'catake'
+NAME = 'cataka'
 HEADERS = src/ui.h
 SOURCES = src/main.c $(HEADERS:.h=.c)
 OBJECTS = $(SOURCES:.c=.o)
