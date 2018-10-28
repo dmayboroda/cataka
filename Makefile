@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall `sdl-config --cflags` $(DEBUG)
+CFLAGS = -Wall `sdl-config --cflags` $(DEBUG) -Wswitch
 LIBS = `sdl-config --libs` -lSDL_image -lSDL_ttf -lSDL_mixer
 NAME = 'cataka'
 HEADERS = src/ui.h
